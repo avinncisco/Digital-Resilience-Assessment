@@ -127,9 +127,9 @@ function requireApiKey(req, res, next) {
 }
 
 // ── Frontend ──────────────────────────────────────────────────────────────────
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '..', 'public')));
 app.get('/', (req, res) => {
-  const hp = path.join(__dirname, 'public', 'index.html');
+  const hp = path.join(__dirname, '..', 'public', 'index.html');
   if (fs.existsSync(hp)) res.sendFile(hp);
   else res.status(404).send('Place security-assessment-app.html in /public as index.html');
 });
