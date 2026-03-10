@@ -1,0 +1,15 @@
+[Unit]
+Description=Digital Resilience Assessment — Dev/Test
+After=network.target
+
+[Service]
+Type=simple
+User=YOUR_USER
+WorkingDirectory=/opt/dra/dev/server
+ExecStart=/usr/bin/node -r dotenv/config server.js
+Restart=always
+RestartSec=5
+Environment=NODE_ENV=development
+
+[Install]
+WantedBy=multi-user.target
